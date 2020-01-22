@@ -10,6 +10,10 @@ Vue.component(
     'example-component',
     require('./components/ExampleComponent.vue').default
 );
+Vue.component(
+    'example2',
+    require('./components/Example2.vue').default
+);
 
 Vue.use(VueRouter);
 
