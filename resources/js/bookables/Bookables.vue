@@ -1,6 +1,6 @@
 <template>
     <div>
-        <bookable-list-item></bookable-list-item>
+        <item></item>
     </div>
 </template>
 
@@ -9,7 +9,7 @@
     export default {
         name: "Bookables",
         components: {
-            BookableListItem,
+            item: BookableListItem,
         }
     }
 </script>
