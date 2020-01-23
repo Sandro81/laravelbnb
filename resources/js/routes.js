@@ -3,7 +3,7 @@ import ExampleComponent from "./components/ExampleComponent";
 import Example2 from "./components/Example2";
 // http://localhost/laravelbnb/public/#/
 
-const preRoute = '/laravelbnb';
+const preRoute = '/laravelbnb/public';
 
 const routes = [
     {

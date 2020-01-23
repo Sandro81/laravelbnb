@@ -1940,6 +1940,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index.vue"
 });
@@ -37386,11 +37388,30 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("router-link", { attrs: { to: { name: "home" } } }, [_vm._v("Home")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "second" } } }, [
-        _vm._v("Second")
-      ]),
+      _c(
+        "nav",
+        { staticClass: "navbar bg-white border-bottom navbar-light" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "navbar-brand mr-auto",
+              attrs: { to: { name: "home" } }
+            },
+            [_vm._v("LaravelBnb")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn nav-button",
+              attrs: { to: { name: "second" } }
+            },
+            [_vm._v("Second")]
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("router-view")
     ],
@@ -52879,7 +52900,7 @@ __webpack_require__.r(__webpack_exports__);
 
  // http://localhost/laravelbnb/public/#/
 
-var preRoute = '/laravelbnb';
+var preRoute = '/laravelbnb/public';
 var routes = [{
   path: preRoute + "/",
   component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
