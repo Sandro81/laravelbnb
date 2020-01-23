@@ -2025,8 +2025,14 @@ __webpack_require__.r(__webpack_exports__);
     console.log('beforeCreate');
   },
   created: function created() {
+    var _this = this;
+
     console.log('created');
     console.log('this.bookable1 ' + this.bookable1);
+    setTimeout(function () {
+      _this.bookable1.title = "Expensive Villa!";
+      _this.bookable2.title = "Very Expensive Villa!";
+    }, 3000);
   },
   beforeMount: function beforeMount() {
     console.log('this.bookable2' + this.bookable2);

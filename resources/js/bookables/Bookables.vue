@@ -36,6 +36,10 @@
         created() {
             console.log('created');
             console.log('this.bookable1 '+this.bookable1);
+            setTimeout(() => {
+                this.bookable1.title = "Expensive Villa!"
+                this.bookable2.title = "Very Expensive Villa!"
+            }, 3000);
         },
         beforeMount() {
             console.log('this.bookable2'+this.bookable2);
