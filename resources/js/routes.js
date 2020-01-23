@@ -2,14 +2,17 @@ import VueRouter from "vue-router";
 import ExampleComponent from "./components/ExampleComponent";
 import Example2 from "./components/Example2";
 // http://localhost/laravelbnb/public/#/
+
+const preRoute = '/laravelbnb';
+
 const routes = [
     {
-        path: "/",
+        path: preRoute+"/",
         component: ExampleComponent,
         name: "home",
     },
     {
-        path: "/second",
+        path: preRoute+"/second",
         component: Example2,
         name: "second",
     },

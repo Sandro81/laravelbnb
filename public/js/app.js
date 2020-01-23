@@ -37386,9 +37386,11 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("router-link", { attrs: { to: "/" } }, [_vm._v("Home")]),
+      _c("router-link", { attrs: { to: { name: "home" } } }, [_vm._v("Home")]),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: "/second" } }, [_vm._v("Second")]),
+      _c("router-link", { attrs: { to: { name: "second" } } }, [
+        _vm._v("Second")
+      ]),
       _vm._v(" "),
       _c("router-view")
     ],
@@ -52877,12 +52879,13 @@ __webpack_require__.r(__webpack_exports__);
 
  // http://localhost/laravelbnb/public/#/
 
+var preRoute = '/laravelbnb';
 var routes = [{
-  path: "/",
+  path: preRoute + "/",
   component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
   name: "home"
 }, {
-  path: "/second",
+  path: preRoute + "/second",
   component: _components_Example2__WEBPACK_IMPORTED_MODULE_2__["default"],
   name: "second"
 }];
