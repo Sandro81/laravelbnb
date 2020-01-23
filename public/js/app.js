@@ -2006,6 +2006,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Bookables",
+  data: function data() {
+    return {
+      bookable1: {
+        title: "Cheap villa!",
+        content: "A very cheap villa"
+      },
+      bookable2: {
+        title: "Cheap villa 2",
+        content: "A very cheap villa 2"
+      }
+    };
+  },
   components: {
     item: _BookableListItem__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -2014,9 +2026,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     console.log('created');
+    console.log('this.bookable1 ' + this.bookable1);
   },
   beforeMount: function beforeMount() {
-    console.log('beforeMount');
+    console.log('this.bookable2' + this.bookable2);
   },
   mounted: function mounted() {
     console.log('mounted');
@@ -37556,16 +37569,16 @@ var render = function() {
     [
       _c("item", {
         attrs: {
-          "item-title": "Cheap Villa",
-          "item-content": "A very cheap villa",
+          "item-title": _vm.bookable1.title,
+          "item-content": _vm.bookable1.content,
           price: 1000
         }
       }),
       _vm._v(" "),
       _c("item", {
         attrs: {
-          "item-title": "Cheap Villa 2",
-          "item-content": "A very cheap villa 2",
+          "item-title": _vm.bookable2.title,
+          "item-content": _vm.bookable2.content,
           price: 2000
         }
       })
