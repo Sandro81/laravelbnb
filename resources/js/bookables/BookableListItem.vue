@@ -1,13 +1,19 @@
 <template>
     <div>
-        <h1>Title</h1>
-        <p>Content</p>
+        <h1>{{itemTitle}}</h1>
+        <p>{{itemContent}}</p>
+        <p>{{price}}</p>
     </div>
 </template>
 
 <script>
     export default {
-        name: "BookableListItem"
+        name: "BookableListItem",
+        props: {
+            itemTitle: String,
+            itemContent: String,
+            price: Number,
+    },
     }
 </script>
 
