@@ -2008,6 +2008,24 @@ __webpack_require__.r(__webpack_exports__);
   name: "Bookables",
   components: {
     item: _BookableListItem__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  beforeCreate: function beforeCreate() {
+    console.log('beforeCreate');
+  },
+  created: function created() {
+    console.log('created');
+  },
+  beforeMount: function beforeMount() {
+    console.log('beforeMount');
+  },
+  mounted: function mounted() {
+    console.log('mounted');
+  },
+  beforeDestroy: function beforeDestroy() {
+    console.log('beforeDestroy');
+  },
+  destroyed: function destroyed() {
+    console.log('destroyed');
   }
 });
 
