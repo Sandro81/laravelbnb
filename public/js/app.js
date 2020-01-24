@@ -37628,7 +37628,7 @@ var render = function() {
           _vm._l(_vm.rows, function(row) {
             return _c(
               "div",
-              { key: "row" + row, staticClass: "row" },
+              { key: "row" + row, staticClass: "row mb-2" },
               [
                 _vm._l(_vm.bookablesInRow(row), function(bookable, column) {
                   return _c(
