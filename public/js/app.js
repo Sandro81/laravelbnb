@@ -2018,11 +2018,18 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       bookables: null,
-      loading: false
+      loading: false,
+      columns: 3,
+      row: 1
     };
   },
   components: {
     item: _BookableListItem__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    rows: function rows() {
+      return this.bookables === null ? 0 : Math.ceil(this.bookables.length / this.columns);
+    }
   },
   beforeCreate: function beforeCreate() {
     console.log('beforeCreate');
@@ -37604,6 +37611,7 @@ var render = function() {
       ? _c("div", [_vm._v("\n        Data is loading...\n    ")])
       : _c(
           "div",
+          { staticClass: "container" },
           _vm._l(_vm.bookables, function(bookable, index) {
             return _c("item", {
               key: index,

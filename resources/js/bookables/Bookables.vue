@@ -3,7 +3,7 @@
         <div v-if="loading">
             Data is loading...
         </div>
-        <div v-else>
+        <div v-else class="container">
             <item
                 v-for="(bookable, index) in bookables" v-bind:key="index"
                 :item-title="bookable.title"
@@ -22,11 +22,18 @@
         data() {
             return {
                 bookables: null,
-                loading: false
+                loading: false,
+                columns: 3,
+                row: 1
             }
         },
         components: {
             item: BookableListItem,
+        },
+        computed: {
+          rows() {
+              return this.bookables === null ? 0 : Math.ceil(this.bookables.length / this.columns);
+          }
         },
         beforeCreate() {
             console.log('beforeCreate');
