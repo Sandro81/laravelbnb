@@ -1,13 +1,17 @@
 <template>
     <div>
-        <item v-if="bookable1"
-            :item-title="bookable1.title"
-            :item-content="bookable1.content"
-            v-bind:price="1000"></item>
-        <item v-if="bookable2"
-            :item-title="bookable2.title"
-            :item-content="bookable2.content"
-            v-bind:price="2000"></item>
+        <div v-if="loading">
+            Data is loading...
+        </div>
+        <div v-else>
+            <item
+                v-for="(bookable, index) in bookables" v-bind:key="index"
+                :item-title="bookable.title"
+                :item-content="bookable.content"
+                :price="bookable.price"
+            ></item>
+        </div>
+
     </div>
 </template>
 
@@ -17,8 +21,8 @@
         name: "Bookables",
         data() {
             return {
-                bookable1: null,
-                bookable2: null
+                bookables: null,
+                loading: false
             }
         },
         components: {
@@ -30,19 +34,28 @@
         created() {
             console.log('created');
             console.log('this.bookable1 '+this.bookable1);
+            this.loading = true;
             setTimeout(() => {
-                this.bookable1 = {
-                    title: "Cheap villa!",
-                    content: "A very cheap villa"
-                },
-                this.bookable2 = {
-                    title: "Cheap villa 2",
-                    content: "A very cheap villa 2"
-                }
-            }, 3000);
+                this.bookables =
+                    [
+                        {
+                            title: "Cheap villa!",
+                            content: "A very cheap villa",
+                            price: 1000
+                        },
+                        {
+                            title: "Cheap villa 2",
+                            content: "A very cheap villa 2",
+                            price: 1500
+                        }
+                    ];
+                this.loading = false;
+            }, 2000);
+
         },
         beforeMount() {
-            console.log('this.bookable2'+this.bookable2);
+            console.log('beforeMount');
+            console.log('this.bookables'+this.bookables);
         },
         mounted() {
             console.log('mounted');
