@@ -2003,6 +2003,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Bookables",
@@ -2036,8 +2040,13 @@ __webpack_require__.r(__webpack_exports__);
       };
     }, 3000);
     setTimeout(function () {
+      console.log('first change');
       _this.bookable1.title = "You will see this!";
     }, 6000);
+    setTimeout(function () {
+      console.log('second change');
+      _this.bookable3.title = "You wont see this!";
+    }, 7000);
   },
   beforeMount: function beforeMount() {
     console.log('this.bookable2' + this.bookable2);
@@ -37591,6 +37600,14 @@ var render = function() {
           "item-title": _vm.bookable2.title,
           "item-content": _vm.bookable2.content,
           price: 2000
+        }
+      }),
+      _vm._v(" "),
+      _c("item", {
+        attrs: {
+          "item-title": _vm.bookable3.title,
+          "item-content": _vm.bookable3.content,
+          price: 5000
         }
       })
     ],

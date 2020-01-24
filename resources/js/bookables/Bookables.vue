@@ -8,6 +8,10 @@
             :item-title="bookable2.title"
             :item-content="bookable2.content"
             v-bind:price="2000"></item>
+        <item
+            :item-title="bookable3.title"
+            :item-content="bookable3.content"
+            v-bind:price="5000"></item>
     </div>
 </template>
 
@@ -45,8 +49,13 @@
                 }
             }, 3000);
             setTimeout(() => {
+                console.log('first change');
                 this.bookable1.title = "You will see this!";
             }, 6000);
+            setTimeout(() => {
+                console.log('second change');
+                this.bookable3.title = "You wont see this!";
+            }, 7000);
         },
         beforeMount() {
             console.log('this.bookable2'+this.bookable2);
