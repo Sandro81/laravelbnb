@@ -1969,6 +1969,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookableListItem",
   props: {
@@ -2035,6 +2040,18 @@ __webpack_require__.r(__webpack_exports__);
         price: 1000
       }, {
         title: "Cheap villa 2",
+        content: "A very cheap villa 2",
+        price: 1500
+      }, {
+        title: "Cheap villa 3",
+        content: "A very cheap villa 2",
+        price: 1500
+      }, {
+        title: "Cheap villa 4",
+        content: "A very cheap villa 2",
+        price: 1500
+      }, {
+        title: "Cheap villa 5",
         content: "A very cheap villa 2",
         price: 1500
       }];
@@ -37548,12 +37565,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v(_vm._s(_vm.itemTitle))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.itemContent))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.price))])
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("h1", { staticClass: "card-title" }, [
+        _vm._v("\n            " + _vm._s(_vm.itemTitle) + "\n        ")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.itemContent))]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.price))])
+    ])
   ])
 }
 var staticRenderFns = []

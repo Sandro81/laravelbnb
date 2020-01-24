@@ -47,6 +47,21 @@
                             title: "Cheap villa 2",
                             content: "A very cheap villa 2",
                             price: 1500
+                        },
+                        {
+                            title: "Cheap villa 3",
+                            content: "A very cheap villa 2",
+                            price: 1500
+                        },
+                        {
+                            title: "Cheap villa 4",
+                            content: "A very cheap villa 2",
+                            price: 1500
+                        },
+                        {
+                            title: "Cheap villa 5",
+                            content: "A very cheap villa 2",
+                            price: 1500
                         }
                     ];
                 this.loading = false;
