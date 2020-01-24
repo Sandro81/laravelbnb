@@ -5,13 +5,16 @@
         </div>
         <div v-else class="container">
             <div class="row" v-for="row in rows" :key="'row' + row">
-                <div class="col" v-for="(bookable, column) in bookables.slice((row-1) * columns, row * columns)" v-bind:key="'row&columns' + row + column">
+                <div class="col" v-for="(bookable, column) in bookablesInRow(row)" v-bind:key="'row&columns' + row + column">
                     <item
                         :item-title="bookable.title"
                         :item-content="bookable.content"
                         :price="bookable.price"
                     ></item>
                 </div>
+                <div class="col" v-for="p in placeholdesInRow(row)" :key="'placeholder' + row + p">
+                </div>
+
             </div>
         </div>
 
@@ -31,6 +34,14 @@
         },
         components: {
             item: BookableListItem,
+        },
+        methods: {
+            bookablesInRow(row){
+               return this.bookables.slice((row-1) * this.columns, row * this.columns);
+            },
+            placeholdesInRow(row) {
+                return this.columns - this.bookablesInRow(row).length;
+            }
         },
         computed: {
           rows() {

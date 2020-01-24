@@ -2015,6 +2015,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Bookables",
@@ -2027,6 +2030,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     item: _BookableListItem__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    bookablesInRow: function bookablesInRow(row) {
+      return this.bookables.slice((row - 1) * this.columns, row * this.columns);
+    },
+    placeholdesInRow: function placeholdesInRow(row) {
+      return this.columns - this.bookablesInRow(row).length;
+    }
   },
   computed: {
     rows: function rows() {
@@ -37618,9 +37629,8 @@ var render = function() {
             return _c(
               "div",
               { key: "row" + row, staticClass: "row" },
-              _vm._l(
-                _vm.bookables.slice((row - 1) * _vm.columns, row * _vm.columns),
-                function(bookable, column) {
+              [
+                _vm._l(_vm.bookablesInRow(row), function(bookable, column) {
                   return _c(
                     "div",
                     { key: "row&columns" + row + column, staticClass: "col" },
@@ -37635,9 +37645,16 @@ var render = function() {
                     ],
                     1
                   )
-                }
-              ),
-              0
+                }),
+                _vm._v(" "),
+                _vm._l(_vm.placeholdesInRow(row), function(p) {
+                  return _c("div", {
+                    key: "placeholder" + row + p,
+                    staticClass: "col"
+                  })
+                })
+              ],
+              2
             )
           }),
           0
