@@ -2008,14 +2008,8 @@ __webpack_require__.r(__webpack_exports__);
   name: "Bookables",
   data: function data() {
     return {
-      bookable1: {
-        title: "Cheap villa!",
-        content: "A very cheap villa"
-      },
-      bookable2: {
-        title: "Cheap villa 2",
-        content: "A very cheap villa 2"
-      }
+      bookable1: null,
+      bookable2: null
     };
   },
   components: {
@@ -2030,8 +2024,13 @@ __webpack_require__.r(__webpack_exports__);
     console.log('created');
     console.log('this.bookable1 ' + this.bookable1);
     setTimeout(function () {
-      _this.bookable1.title = "Expensive Villa!";
-      _this.bookable2.title = "Very Expensive Villa!";
+      _this.bookable1 = {
+        title: "Cheap villa!",
+        content: "A very cheap villa"
+      }, _this.bookable2 = {
+        title: "Cheap villa 2",
+        content: "A very cheap villa 2"
+      };
     }, 3000);
   },
   beforeMount: function beforeMount() {

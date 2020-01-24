@@ -17,14 +17,8 @@
         name: "Bookables",
         data() {
             return {
-                bookable1: {
-                    title: "Cheap villa!",
-                    content: "A very cheap villa"
-                },
-                bookable2: {
-                    title: "Cheap villa 2",
-                    content: "A very cheap villa 2"
-                }
+                bookable1: null,
+                bookable2: null
             }
         },
         components: {
@@ -37,8 +31,14 @@
             console.log('created');
             console.log('this.bookable1 '+this.bookable1);
             setTimeout(() => {
-                this.bookable1.title = "Expensive Villa!"
-                this.bookable2.title = "Very Expensive Villa!"
+                this.bookable1 = {
+                    title: "Cheap villa!",
+                    content: "A very cheap villa"
+                },
+                this.bookable2 = {
+                    title: "Cheap villa 2",
+                    content: "A very cheap villa 2"
+                }
             }, 3000);
         },
         beforeMount() {
