@@ -2030,8 +2030,14 @@ __webpack_require__.r(__webpack_exports__);
       }, _this.bookable2 = {
         title: "Cheap villa 2",
         content: "A very cheap villa 2"
+      }, _this.bookable3 = {
+        title: "Expensive villa 2",
+        content: "A very expensive villa 2"
       };
     }, 3000);
+    setTimeout(function () {
+      _this.bookable1.title = "You will see this!";
+    }, 6000);
   },
   beforeMount: function beforeMount() {
     console.log('this.bookable2' + this.bookable2);
