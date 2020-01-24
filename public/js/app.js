@@ -2012,6 +2012,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Bookables",
@@ -2019,8 +2022,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       bookables: null,
       loading: false,
-      columns: 3,
-      row: 1
+      columns: 3
     };
   },
   components: {
@@ -37612,17 +37614,33 @@ var render = function() {
       : _c(
           "div",
           { staticClass: "container" },
-          _vm._l(_vm.bookables, function(bookable, index) {
-            return _c("item", {
-              key: index,
-              attrs: {
-                "item-title": bookable.title,
-                "item-content": bookable.content,
-                price: bookable.price
-              }
-            })
+          _vm._l(_vm.rows, function(row) {
+            return _c(
+              "div",
+              { key: "row" + row, staticClass: "row" },
+              _vm._l(
+                _vm.bookables.slice((row - 1) * _vm.columns, row * _vm.columns),
+                function(bookable, column) {
+                  return _c(
+                    "div",
+                    { key: "row&columns" + row + column, staticClass: "col" },
+                    [
+                      _c("item", {
+                        attrs: {
+                          "item-title": bookable.title,
+                          "item-content": bookable.content,
+                          price: bookable.price
+                        }
+                      })
+                    ],
+                    1
+                  )
+                }
+              ),
+              0
+            )
           }),
-          1
+          0
         )
   ])
 }

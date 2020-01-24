@@ -4,12 +4,15 @@
             Data is loading...
         </div>
         <div v-else class="container">
-            <item
-                v-for="(bookable, index) in bookables" v-bind:key="index"
-                :item-title="bookable.title"
-                :item-content="bookable.content"
-                :price="bookable.price"
-            ></item>
+            <div class="row" v-for="row in rows" :key="'row' + row">
+                <div class="col" v-for="(bookable, column) in bookables.slice((row-1) * columns, row * columns)" v-bind:key="'row&columns' + row + column">
+                    <item
+                        :item-title="bookable.title"
+                        :item-content="bookable.content"
+                        :price="bookable.price"
+                    ></item>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -24,7 +27,6 @@
                 bookables: null,
                 loading: false,
                 columns: 3,
-                row: 1
             }
         },
         components: {
