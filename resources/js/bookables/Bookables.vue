@@ -1,17 +1,13 @@
 <template>
     <div>
-        <item
+        <item v-if="bookable1"
             :item-title="bookable1.title"
             :item-content="bookable1.content"
             v-bind:price="1000"></item>
-        <item
+        <item v-if="bookable2"
             :item-title="bookable2.title"
             :item-content="bookable2.content"
             v-bind:price="2000"></item>
-        <item
-            :item-title="bookable3.title"
-            :item-content="bookable3.content"
-            v-bind:price="5000"></item>
     </div>
 </template>
 
@@ -42,20 +38,8 @@
                 this.bookable2 = {
                     title: "Cheap villa 2",
                     content: "A very cheap villa 2"
-                },
-                this.bookable3 = {
-                    title: "Expensive villa 2",
-                    content: "A very expensive villa 2"
                 }
             }, 3000);
-            setTimeout(() => {
-                console.log('first change');
-                this.bookable1.title = "You will see this!";
-            }, 6000);
-            setTimeout(() => {
-                console.log('second change');
-                this.bookable3.title = "You wont see this!";
-            }, 7000);
         },
         beforeMount() {
             console.log('this.bookable2'+this.bookable2);

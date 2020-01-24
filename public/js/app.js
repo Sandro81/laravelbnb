@@ -2003,10 +2003,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Bookables",
@@ -2034,19 +2030,8 @@ __webpack_require__.r(__webpack_exports__);
       }, _this.bookable2 = {
         title: "Cheap villa 2",
         content: "A very cheap villa 2"
-      }, _this.bookable3 = {
-        title: "Expensive villa 2",
-        content: "A very expensive villa 2"
       };
     }, 3000);
-    setTimeout(function () {
-      console.log('first change');
-      _this.bookable1.title = "You will see this!";
-    }, 6000);
-    setTimeout(function () {
-      console.log('second change');
-      _this.bookable3.title = "You wont see this!";
-    }, 7000);
   },
   beforeMount: function beforeMount() {
     console.log('this.bookable2' + this.bookable2);
@@ -37587,29 +37572,25 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("item", {
-        attrs: {
-          "item-title": _vm.bookable1.title,
-          "item-content": _vm.bookable1.content,
-          price: 1000
-        }
-      }),
+      _vm.bookable1
+        ? _c("item", {
+            attrs: {
+              "item-title": _vm.bookable1.title,
+              "item-content": _vm.bookable1.content,
+              price: 1000
+            }
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _c("item", {
-        attrs: {
-          "item-title": _vm.bookable2.title,
-          "item-content": _vm.bookable2.content,
-          price: 2000
-        }
-      }),
-      _vm._v(" "),
-      _c("item", {
-        attrs: {
-          "item-title": _vm.bookable3.title,
-          "item-content": _vm.bookable3.content,
-          price: 5000
-        }
-      })
+      _vm.bookable2
+        ? _c("item", {
+            attrs: {
+              "item-title": _vm.bookable2.title,
+              "item-content": _vm.bookable2.content,
+              price: 2000
+            }
+          })
+        : _vm._e()
     ],
     1
   )
@@ -52970,14 +52951,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************!*\
   !*** ./resources/js/bookables/Bookables.vue ***!
   \**********************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Bookables_vue_vue_type_template_id_7a867923_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bookables.vue?vue&type=template&id=7a867923&scoped=true& */ "./resources/js/bookables/Bookables.vue?vue&type=template&id=7a867923&scoped=true&");
 /* harmony import */ var _Bookables_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bookables.vue?vue&type=script&lang=js& */ "./resources/js/bookables/Bookables.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Bookables_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Bookables_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -53007,7 +52989,7 @@ component.options.__file = "resources/js/bookables/Bookables.vue"
 /*!***********************************************************************!*\
   !*** ./resources/js/bookables/Bookables.vue?vue&type=script&lang=js& ***!
   \***********************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
