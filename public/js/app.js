@@ -2009,6 +2009,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookableListItem",
   props: {
@@ -37561,13 +37563,17 @@ var render = function() {
       "div",
       { staticClass: "card-body" },
       [
-        _c("router-link", {
-          attrs: { to: { name: "bookable", params: { id: _vm.id } } }
-        }),
-        _vm._v(" "),
-        _c("h1", { staticClass: "card-title" }, [
-          _vm._v("\n            " + _vm._s(_vm.title) + "\n        ")
-        ]),
+        _c(
+          "router-link",
+          { attrs: { to: { name: "bookable", params: { id: _vm.id } } } },
+          [
+            _c("h5", { staticClass: "card-title" }, [
+              _vm._v(
+                "\n                " + _vm._s(_vm.title) + "\n            "
+              )
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c("p", { staticClass: "card-text" }, [
           _vm._v(_vm._s(_vm.description))
