@@ -1975,8 +1975,12 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
+    var _this = this;
+
     console.log('this.$route.params.id ' + this.$route.params.id);
-    axios.get("http://localhost/laravelbnb/public/api/bookables/".concat(this.$route.params.id));
+    axios.get("http://localhost/laravelbnb/public/api/bookables/".concat(this.$route.params.id)).then(function (response) {
+      return _this.bookable = response.data;
+    });
   }
 });
 
