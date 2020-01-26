@@ -2048,24 +2048,16 @@ __webpack_require__.r(__webpack_exports__);
     console.log('beforeCreate');
   },
   created: function created() {
+    var _this = this;
+
     console.log('created');
     console.log('this.bookable1 ' + this.bookable1);
     this.loading = true;
-    var p = new Promise(function (resolve, reject) {
-      console.log(resolve);
-      console.log(reject);
-      setTimeout(function () {
-        return resolve("Hello");
-      }, 3000);
-    }).then(function (result) {
-      return "Hello again " + result;
-    }).then(function (result) {
-      return console.log("Success ".concat(result));
-    })["catch"](function (result) {
-      return console.log("Error ".concat(result));
+    var request = axios.get("http://localhost/laravelbnb/public/api/bookables").then(function (response) {
+      _this.bookables = response.data;
+      _this.loading = false;
     });
-    console.log(p);
-    var request = axios.get("/api/bookables");
+    console.log(request);
   },
   beforeMount: function beforeMount() {
     console.log('beforeMount');

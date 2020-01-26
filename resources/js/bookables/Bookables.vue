@@ -56,18 +56,12 @@
             console.log('this.bookable1 '+this.bookable1);
             this.loading = true;
 
-            const p = new Promise((resolve, reject) => {
-               console.log(resolve);
-               console.log(reject);
-               setTimeout(()=>resolve("Hello"), 3000);
-            })
-                .then(result => "Hello again " + result)
-                .then(result => console.log(`Success ${result}`))
-            .catch(result => console.log(`Error ${result}`));
-            console.log(p);
-
-            const request = axios.get("/api/bookables");
-
+            const request = axios.get("http://localhost/laravelbnb/public/api/bookables")
+            .then(response => {
+                this.bookables = response.data;
+                this.loading = false;
+            });
+            console.log(request);
         },
         beforeMount() {
             console.log('beforeMount');
