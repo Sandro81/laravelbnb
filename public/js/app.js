@@ -1968,7 +1968,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Bookable"
+  name: "Bookable",
+  data: function data() {
+    return {
+      bookable: null
+    };
+  },
+  created: function created() {
+    console.log('this.$route.params.id ' + this.$route.params.id);
+    axios.get("http://localhost/laravelbnb/public/api/bookables/".concat(this.$route.params.id));
+  }
 });
 
 /***/ }),
