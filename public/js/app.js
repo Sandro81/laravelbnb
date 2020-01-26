@@ -2057,8 +2057,10 @@ __webpack_require__.r(__webpack_exports__);
       console.log(resolve);
       console.log(reject);
       setTimeout(function () {
-        return reject("Hello");
+        return resolve("Hello");
       }, 3000);
+    }).then(function (result) {
+      return "Hello again " + result;
     }).then(function (result) {
       return console.log("Success ".concat(result));
     })["catch"](function (result) {
