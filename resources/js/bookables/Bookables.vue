@@ -65,37 +65,8 @@
                 .then(result => console.log(`Success ${result}`))
             .catch(result => console.log(`Error ${result}`));
             console.log(p);
-            setTimeout(() => {
-                this.bookables =
-                    [
-                        {
-                            title: "Cheap villa!",
-                            content: "A very cheap villa",
-                            price: 1000
-                        },
-                        {
-                            title: "Cheap villa 2",
-                            content: "A very cheap villa 2",
-                            price: 1500
-                        },
-                        {
-                            title: "Cheap villa 3",
-                            content: "A very cheap villa 2",
-                            price: 1500
-                        },
-                        {
-                            title: "Cheap villa 4",
-                            content: "A very cheap villa 2",
-                            price: 1500
-                        },
-                        {
-                            title: "Cheap villa 5",
-                            content: "A very cheap villa 2",
-                            price: 1500
-                        }
-                    ];
-                this.loading = false;
-            }, 2000);
+
+            const request = axios.get("/api/bookables");
 
         },
         beforeMount() {

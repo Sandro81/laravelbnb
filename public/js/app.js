@@ -2048,8 +2048,6 @@ __webpack_require__.r(__webpack_exports__);
     console.log('beforeCreate');
   },
   created: function created() {
-    var _this = this;
-
     console.log('created');
     console.log('this.bookable1 ' + this.bookable1);
     this.loading = true;
@@ -2067,30 +2065,7 @@ __webpack_require__.r(__webpack_exports__);
       return console.log("Error ".concat(result));
     });
     console.log(p);
-    setTimeout(function () {
-      _this.bookables = [{
-        title: "Cheap villa!",
-        content: "A very cheap villa",
-        price: 1000
-      }, {
-        title: "Cheap villa 2",
-        content: "A very cheap villa 2",
-        price: 1500
-      }, {
-        title: "Cheap villa 3",
-        content: "A very cheap villa 2",
-        price: 1500
-      }, {
-        title: "Cheap villa 4",
-        content: "A very cheap villa 2",
-        price: 1500
-      }, {
-        title: "Cheap villa 5",
-        content: "A very cheap villa 2",
-        price: 1500
-      }];
-      _this.loading = false;
-    }, 2000);
+    var request = axios.get("/api/bookables");
   },
   beforeMount: function beforeMount() {
     console.log('beforeMount');
