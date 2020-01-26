@@ -4,7 +4,7 @@
             <h1 class="card-title">
                 {{itemTitle}}
             </h1>
-            <p class="card-text">{{itemContent}}</p>
+            <p class="card-text">{{itemDescription}}</p>
             <p>{{price}}</p>
         </div>
 
@@ -16,7 +16,7 @@
         name: "BookableListItem",
         props: {
             itemTitle: String,
-            itemContent: String,
+            itemDescription: String,
             price: Number,
     },
     }

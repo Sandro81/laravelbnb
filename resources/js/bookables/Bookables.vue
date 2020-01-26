@@ -8,7 +8,7 @@
                 <div class="col" v-for="(bookable, column) in bookablesInRow(row)" v-bind:key="'row&columns' + row + column">
                     <item
                         :item-title="bookable.title"
-                        :item-content="bookable.description"
+                        :item-description="bookable.description"
                         :price="bookable.price"
                     ></item>
                 </div>
