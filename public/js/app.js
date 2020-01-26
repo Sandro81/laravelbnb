@@ -1971,19 +1971,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Bookable",
   data: function data() {
     return {
-      bookable: null
+      bookable: null,
+      loading: false
     };
   },
   created: function created() {
     var _this = this;
 
+    this.loading = true;
     console.log('this.$route.params.id ' + this.$route.params.id);
     axios.get("http://localhost/laravelbnb/public/api/bookables/".concat(this.$route.params.id)).then(function (response) {
-      return _this.bookable = response.data;
+      _this.bookable = response.data;
+      _this.loading = false;
     });
   }
 });
@@ -37538,20 +37547,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "col-md-4" })
-      ])
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-md-4" }, [
+      _c("div", { staticClass: "card-body" }, [
+        !_vm.loading
+          ? _c("div", [
+              _c("h2", [_vm._v(_vm._s(_vm.bookable.title))]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("article", [_vm._v(_vm._s(_vm.bookable.description))])
+            ])
+          : _c("div", [_vm._v("Loading...")])
+      ]),
+      _vm._v("\n        availablity & prices\n    ")
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
