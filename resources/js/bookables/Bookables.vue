@@ -55,6 +55,14 @@
             console.log('created');
             console.log('this.bookable1 '+this.bookable1);
             this.loading = true;
+
+            const p = new Promise((resolve, reject) => {
+               console.log(resolve);
+               console.log(reject);
+               setTimeout(()=>reject("Hello"), 3000);
+            }).then(result => console.log(`Success ${result}`))
+            .catch(result => console.log(`Error ${result}`));
+            console.log(p);
             setTimeout(() => {
                 this.bookables =
                     [

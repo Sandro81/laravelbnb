@@ -2053,6 +2053,18 @@ __webpack_require__.r(__webpack_exports__);
     console.log('created');
     console.log('this.bookable1 ' + this.bookable1);
     this.loading = true;
+    var p = new Promise(function (resolve, reject) {
+      console.log(resolve);
+      console.log(reject);
+      setTimeout(function () {
+        return reject("Hello");
+      }, 3000);
+    }).then(function (result) {
+      return console.log("Success ".concat(result));
+    })["catch"](function (result) {
+      return console.log("Error ".concat(result));
+    });
+    console.log(p);
     setTimeout(function () {
       _this.bookables = [{
         title: "Cheap villa!",
