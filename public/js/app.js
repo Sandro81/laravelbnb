@@ -37616,7 +37616,10 @@ var render = function() {
                 _vm._l(_vm.bookablesInRow(row), function(bookable, column) {
                   return _c(
                     "div",
-                    { key: "row&columns" + row + column, staticClass: "col" },
+                    {
+                      key: "row&columns" + row + column,
+                      staticClass: "col d-flex align-items-stretch"
+                    },
                     [
                       _c("item", {
                         attrs: {

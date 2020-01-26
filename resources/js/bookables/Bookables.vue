@@ -5,7 +5,7 @@
         </div>
         <div v-else class="container">
             <div class="row mb-2" v-for="row in rows" :key="'row' + row">
-                <div class="col" v-for="(bookable, column) in bookablesInRow(row)" v-bind:key="'row&columns' + row + column">
+                <div class="col d-flex align-items-stretch" v-for="(bookable, column) in bookablesInRow(row)" v-bind:key="'row&columns' + row + column">
                     <item
                         :item-title="bookable.title"
                         :item-description="bookable.description"
