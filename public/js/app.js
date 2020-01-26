@@ -2011,9 +2011,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookableListItem",
   props: {
-    itemTitle: String,
-    itemDescription: String,
-    price: Number
+    title: String,
+    description: String,
+    id: Number
   }
 });
 
@@ -37560,12 +37560,10 @@ var render = function() {
   return _c("div", { staticClass: "card w-100" }, [
     _c("div", { staticClass: "card-body" }, [
       _c("h1", { staticClass: "card-title" }, [
-        _vm._v("\n            " + _vm._s(_vm.itemTitle) + "\n        ")
+        _vm._v("\n            " + _vm._s(_vm.title) + "\n        ")
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "card-text" }, [
-        _vm._v(_vm._s(_vm.itemDescription))
-      ]),
+      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.description))]),
       _vm._v(" "),
       _c("p", [_vm._v(_vm._s(_vm.price))])
     ])
@@ -37614,9 +37612,9 @@ var render = function() {
                     [
                       _c("item", {
                         attrs: {
-                          "item-title": bookable.title,
-                          "item-description": bookable.description,
-                          price: bookable.price
+                          title: bookable.title,
+                          description: bookable.description,
+                          id: bookable.id
                         }
                       })
                     ],

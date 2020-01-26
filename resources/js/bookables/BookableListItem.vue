@@ -2,9 +2,9 @@
     <div class="card w-100">
         <div class="card-body">
             <h1 class="card-title">
-                {{itemTitle}}
+                {{title}}
             </h1>
-            <p class="card-text">{{itemDescription}}</p>
+            <p class="card-text">{{description}}</p>
             <p>{{price}}</p>
         </div>
 
@@ -15,9 +15,9 @@
     export default {
         name: "BookableListItem",
         props: {
-            itemTitle: String,
-            itemDescription: String,
-            price: Number,
+            title: String,
+            description: String,
+            id: Number,
     },
     }
 </script>
