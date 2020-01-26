@@ -7,9 +7,7 @@
             <div class="row mb-2" v-for="row in rows" :key="'row' + row">
                 <div class="col d-flex align-items-stretch" v-for="(bookable, column) in bookablesInRow(row)" v-bind:key="'row&columns' + row + column">
                     <item
-                        :title="bookable.title"
-                        :description="bookable.description"
-                        :id="bookable.id"
+                        v-bind="bookable"
                     ></item>
                 </div>
                 <div class="col" v-for="p in placeholdesInRow(row)" :key="'placeholder' + row + p">
@@ -37,16 +35,16 @@
         },
         methods: {
             bookablesInRow(row){
-               return this.bookables.slice((row-1) * this.columns, row * this.columns);
+                return this.bookables.slice((row-1) * this.columns, row * this.columns);
             },
             placeholdesInRow(row) {
                 return this.columns - this.bookablesInRow(row).length;
             }
         },
         computed: {
-          rows() {
-              return this.bookables === null ? 0 : Math.ceil(this.bookables.length / this.columns);
-          }
+            rows() {
+                return this.bookables === null ? 0 : Math.ceil(this.bookables.length / this.columns);
+            }
         },
         beforeCreate() {
             console.log('beforeCreate');
@@ -57,10 +55,10 @@
             this.loading = true;
 
             const request = axios.get("http://localhost/laravelbnb/public/api/bookables")
-            .then(response => {
-                this.bookables = response.data;
-                this.loading = false;
-            });
+                .then(response => {
+                    this.bookables = response.data;
+                    this.loading = false;
+                });
             console.log(request);
         },
         beforeMount() {
