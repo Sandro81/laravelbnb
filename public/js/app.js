@@ -1991,7 +1991,7 @@ __webpack_require__.r(__webpack_exports__);
     this.loading = true;
     console.log('this.$route.params.id ' + this.$route.params.id);
     axios.get("http://localhost/laravelbnb/public/api/bookables/".concat(this.$route.params.id)).then(function (response) {
-      _this.bookable = response.data;
+      _this.bookable = response.data.data;
       _this.loading = false;
     });
   }
@@ -2099,17 +2099,16 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     console.log('created');
-    console.log('this.bookable1 ' + this.bookable1);
     this.loading = true;
     var request = axios.get("http://localhost/laravelbnb/public/api/bookables").then(function (response) {
-      _this.bookables = response.data;
+      _this.bookables = response.data.data;
       _this.loading = false;
     });
     console.log(request);
   },
   beforeMount: function beforeMount() {
     console.log('beforeMount');
-    console.log('this.bookables' + this.bookables);
+    console.log('this.bookables ' + this.bookables);
   },
   mounted: function mounted() {
     console.log('mounted');

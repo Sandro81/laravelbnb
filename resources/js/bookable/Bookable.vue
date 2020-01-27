@@ -28,7 +28,7 @@
             console.log('this.$route.params.id ' + this.$route.params.id);
             axios.get(`http://localhost/laravelbnb/public/api/bookables/${this.$route.params.id}`)
                 .then(response => {
-                    this.bookable = response.data;
+                    this.bookable = response.data.data;
                     this.loading = false;
                 });
         }

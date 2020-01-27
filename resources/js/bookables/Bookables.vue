@@ -51,19 +51,18 @@
         },
         created() {
             console.log('created');
-            console.log('this.bookable1 '+this.bookable1);
             this.loading = true;
 
             const request = axios.get("http://localhost/laravelbnb/public/api/bookables")
                 .then(response => {
-                    this.bookables = response.data;
+                    this.bookables = response.data.data;
                     this.loading = false;
                 });
             console.log(request);
         },
         beforeMount() {
             console.log('beforeMount');
-            console.log('this.bookables'+this.bookables);
+            console.log('this.bookables '+this.bookables);
         },
         mounted() {
             console.log('mounted');
