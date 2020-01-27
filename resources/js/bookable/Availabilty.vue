@@ -31,7 +31,7 @@
     export default {
         data() {
             return {
-                from: null,
+                from: "2020-01-27",
                 to: null
             }
         },
