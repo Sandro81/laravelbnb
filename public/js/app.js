@@ -1986,6 +1986,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Availabilty"
 });
@@ -2002,6 +2004,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Availabilty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Availabilty */ "./resources/js/bookable/Availabilty.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -38251,7 +38257,7 @@ var staticRenderFns = [
       ),
       _vm._v(" "),
       _c("div", { staticClass: "form-row" }, [
-        _c("div", { staticClass: "form-group col-md-6" }, [
+        _c("div", { staticClass: "form-group col-md-6 " }, [
           _c("label", { attrs: { for: "from" } }, [_vm._v("From")]),
           _vm._v(" "),
           _c("input", {
@@ -38268,6 +38274,10 @@ var staticRenderFns = [
             attrs: { type: "text", name: "to", placeholder: "End date" }
           })
         ])
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-secondary btn-block" }, [
+        _vm._v("Check")
       ])
     ])
   }
@@ -38294,10 +38304,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "col-md-4" },
-      [
+    _c("div", { staticClass: "col-md-8 pb-4" }, [
+      _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-body" }, [
           !_vm.loading
             ? _c("div", [
@@ -38308,12 +38316,11 @@ var render = function() {
                 _c("article", [_vm._v(_vm._s(_vm.bookable.description))])
               ])
             : _c("div", [_vm._v("Loading...")])
-        ]),
-        _vm._v(" "),
-        _c("availabilty")
-      ],
-      1
-    )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-4 pb-4" }, [_c("availabilty")], 1)
   ])
 }
 var staticRenderFns = []
