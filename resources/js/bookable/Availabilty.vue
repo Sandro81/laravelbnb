@@ -30,5 +30,10 @@
 </script>
 
 <style scoped>
-
+    label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: gray;
+        font-weight: bolder;
+    }
 </style>
