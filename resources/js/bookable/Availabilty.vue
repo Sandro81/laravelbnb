@@ -9,7 +9,8 @@
                     type="text"
                     name="from"
                     class="form-control form-control-sm"
-                    placeholder="Start date">
+                    placeholder="Start date"
+                    v-model="from">
             </div>
             <div class="form-group col-md-6">
                 <label for="to">To</label>
@@ -17,7 +18,8 @@
                     type="text"
                     name="to"
                     class="form-control form-control-sm"
-                    placeholder="End date">
+                    placeholder="End date"
+                    v-model="to">
             </div>
         </div>
 
@@ -27,6 +29,12 @@
 
 <script>
     export default {
+        data() {
+            return {
+                from: null,
+                to: null
+            }
+        },
         name: "Availabilty"
     }
 </script>
