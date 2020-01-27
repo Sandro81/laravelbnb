@@ -12,7 +12,7 @@ class BookableController extends Controller
         return Bookable::all();
     }
 
-    public function show(){
-        return Bookable::findOrFail($id);
+    public function show(Request $request){
+        return Bookable::findOrFail($request->id);
     }
 }
