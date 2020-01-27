@@ -1997,7 +1997,12 @@ __webpack_require__.r(__webpack_exports__);
       to: null
     };
   },
-  name: "Availabilty"
+  name: "Availabilty",
+  methods: {
+    check: function check() {
+      alert('I will check something now!');
+    }
+  }
 });
 
 /***/ }),

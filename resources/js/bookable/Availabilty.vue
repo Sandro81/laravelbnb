@@ -35,7 +35,12 @@
                 to: null
             }
         },
-        name: "Availabilty"
+        name: "Availabilty",
+        methods: {
+            check() {
+                alert('I will check something now!');
+            }
+        }
     }
 </script>
 
