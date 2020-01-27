@@ -9,13 +9,17 @@
                 </div>
                 <div v-else>Loading...</div>
             </div>
-            availablity & prices
+            <availabilty></availabilty>
         </div>
     </div>
 </template>
 
 <script>
+    import Availabilty from "./Availabilty";
     export default {
+        components: {
+            Availabilty
+        },
         name: "Bookable",
         data() {
             return {
