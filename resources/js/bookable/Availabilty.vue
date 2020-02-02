@@ -11,7 +11,8 @@
                     class="form-control form-control-sm"
                     placeholder="Start date"
                     v-model="from"
-                    @keyup.enter="check">
+                    @keyup.enter="check"
+                    :class="[{'is-invalid': this.errorFor('from')}]">
             </div>
             <div class="form-group col-md-6">
                 <label for="to">To</label>
@@ -21,7 +22,8 @@
                     class="form-control form-control-sm"
                     placeholder="End date"
                     v-model="to"
-                    @keyup.enter="check">
+                    @keyup.enter="check"
+                    :class="[{'is-invalid': this.errorFor('to')}]">
             </div>
         </div>
 
