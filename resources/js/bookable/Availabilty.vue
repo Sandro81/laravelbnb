@@ -43,6 +43,7 @@
         name: "Availabilty",
         methods: {
             check() {
+                this.errors = null;
                 this.loading = true
                 axios.get(`/api/bookable/${this.$route.params.id}/availability?from=${this.from}&to=${this.to}`)
                     .then(response => {
