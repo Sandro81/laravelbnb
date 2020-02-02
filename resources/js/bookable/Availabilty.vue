@@ -55,7 +55,21 @@
                         }
                         this.status = error.response.status;
                     })
-                .then(()=> this.loading = false);
+                    .then(()=> this.loading = false);
+            }
+        },
+        errorFor(field) {
+            return this.hasErrors && this.errors[field] ? this.errors[field] : null;
+        },
+        computed: {
+            hasErrors() {
+                return 422 === this.status && this.errors !== null;
+            },
+            hasAvailability() {
+                return 200 === this.status;
+            },
+            noAvailability() {
+                return 400 === this.status;
             }
         }
     }
