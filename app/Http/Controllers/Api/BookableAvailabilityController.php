@@ -18,10 +18,13 @@ class BookableAvailabilityController extends Controller
     {
         //https://laravel.com/docs/6.x/validation
         $data = $request->validate([
-           'from' => 'required|data_format:Y-m-d|after_or_equal:now',
-           'to' => 'required|data_format:Y-m-d|after_or_equal:from'
+           'from' => 'required|date_format:Y-m-d|after_or_equal:now',
+           'to' => 'required|date_format:Y-m-d|after_or_equal:from'
         ]);
 
+//        dd($data);
         $bookable = Bookable::findOrFail($id);
+
+        dd($bookable->bookings()->betweenDates($data['from'], $data['to'])->count());
     }
 }
