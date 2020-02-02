@@ -1994,6 +1994,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2010,22 +2012,29 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.errors = null;
-      this.loading = true;
-      axios.get("/api/bookable/".concat(this.$route.params.id, "/availability?from=").concat(this.from, "&to=").concat(this.to)).then(function (response) {
+      this.loading = true; ///http://localhost/laravelbnb/public/api/bookables/2/availability?from=2020-02-03&to=2020-02-18
+      ///http://localhost/laravelbnb/public/api/bookable/2/availability?from=null&to=null
+
+      console.log("http://localhost/laravelbnb/public/api/bookables/".concat(this.$route.params.id, "/availability?from=").concat(this.from, "&to=").concat(this.to));
+      axios.get("http://localhost/laravelbnb/public/api/bookables/".concat(this.$route.params.id, "/availability?from=").concat(this.from, "&to=").concat(this.to)).then(function (response) {
         _this.status = response.status;
+        console.log(_this.status);
       })["catch"](function (error) {
         if (422 === error.response.status) {
           _this.errors = error.response.data.errors;
         }
 
         _this.status = error.response.status;
+        console.log(_this.status);
       }).then(function () {
         return _this.loading = false;
       });
+    },
+    errorFor: function errorFor(field) {
+      console.log('this.hasErrors ' + this.hasErrors); // console.log(this.errors[field]);
+
+      return this.hasErrors && this.errors[field] ? this.errors[field] : null;
     }
-  },
-  errorFor: function errorFor(field) {
-    return this.hasErrors && this.errors[field] ? this.errors[field] : null;
   },
   computed: {
     hasErrors: function hasErrors() {
@@ -6765,7 +6774,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nlabel[data-v-8c1c816c] {\n    font-size: 0.7rem;\n    text-transform: uppercase;\n    color: gray;\n    font-weight: bolder;\n}\n", ""]);
+exports.push([module.i, "\nlabel[data-v-8c1c816c] {\n    font-size: 0.7rem;\n    text-transform: uppercase;\n    color: gray;\n    font-weight: bolder;\n}\n.is-invalid[data-v-8c1c816c]{\n    border-color: #b22222;\n    background-image: none;\n}\n.invalid-feeback[data-v-8c1c816c] {\n    border-color: #b22222;\n}\n", ""]);
 
 // exports
 
@@ -38297,79 +38306,103 @@ var render = function() {
       [_vm._v("Check Availability")]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "form-row" }, [
-      _c("div", { staticClass: "form-group col-md-6 " }, [
-        _c("label", { attrs: { for: "from" } }, [_vm._v("From")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.from,
-              expression: "from"
-            }
+    _c(
+      "div",
+      { staticClass: "form-row" },
+      [
+        _c(
+          "div",
+          { staticClass: "form-group col-md-6 " },
+          [
+            _c("label", { attrs: { for: "from" } }, [_vm._v("From")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.from,
+                  expression: "from"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              class: [{ "is-invalid": this.errorFor("from") }],
+              attrs: { type: "text", name: "from", placeholder: "Start date" },
+              domProps: { value: _vm.from },
+              on: {
+                keyup: function($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.check($event)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.from = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm._l(this.errorFor("from"), function(error, index) {
+              return _c("div", {
+                key: "from" + index,
+                staticClass: "invalid-feedback"
+              })
+            })
           ],
-          staticClass: "form-control form-control-sm",
-          class: [{ "is-invalid": this.errorFor("from") }],
-          attrs: { type: "text", name: "from", placeholder: "Start date" },
-          domProps: { value: _vm.from },
-          on: {
-            keyup: function($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-              ) {
-                return null
-              }
-              return _vm.check($event)
-            },
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.from = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", { attrs: { for: "to" } }, [_vm._v("To")]),
+          2
+        ),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.to,
-              expression: "to"
-            }
-          ],
-          staticClass: "form-control form-control-sm",
-          class: [{ "is-invalid": this.errorFor("to") }],
-          attrs: { type: "text", name: "to", placeholder: "End date" },
-          domProps: { value: _vm.to },
-          on: {
-            keyup: function($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-              ) {
-                return null
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "to" } }, [_vm._v("To")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.to,
+                expression: "to"
               }
-              return _vm.check($event)
-            },
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+            ],
+            staticClass: "form-control form-control-sm",
+            class: [{ "is-invalid": this.errorFor("to") }],
+            attrs: { type: "text", name: "to", placeholder: "End date" },
+            domProps: { value: _vm.to },
+            on: {
+              keyup: function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                ) {
+                  return null
+                }
+                return _vm.check($event)
+              },
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.to = $event.target.value
               }
-              _vm.to = $event.target.value
             }
-          }
+          })
+        ]),
+        _vm._v(" "),
+        _vm._l(this.errorFor("from"), function(error, index) {
+          return _c("div", {
+            key: "from" + index,
+            staticClass: "invalid-feedback"
+          })
         })
-      ])
-    ]),
+      ],
+      2
+    ),
     _vm._v(" "),
     _c(
       "button",
