@@ -37,7 +37,7 @@
                 to: null,
                 loading: false,
                 status: null,
-                errors:
+                errors: null
             }
         },
         name: "Availabilty",
@@ -50,9 +50,11 @@
                     })
                     .catch(error => {
                         if (422 === error.response.status) {
-
+                            this.error = error.response.data.errors;
                         }
-                    });
+                        this.status = error.response.status;
+                    })
+                .then(()=> this.loading = false);
             }
         }
     }
