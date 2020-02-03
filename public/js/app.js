@@ -38566,7 +38566,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "row pt-4" }, [
       _c("div", { staticClass: "col-md-6" }, [_vm._v("Sandro Fioravanti")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md 6" }, [_vm._v("STAR RATING")])
@@ -38576,7 +38576,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "row pt-4" }, [
       _c("div", { staticClass: "col-md-12" }, [_vm._v("Added 5 minutes ago")])
     ])
   },
@@ -38584,7 +38584,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "row pt-4" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _vm._v("\n                Content of the review\n            ")
       ])
