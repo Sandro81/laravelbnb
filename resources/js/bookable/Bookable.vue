@@ -11,6 +11,7 @@
                     <div v-else>Loading...</div>
                 </div>
             </div>
+            <reviewList></reviewList>
         </div>
         <div class="col-md-4 pb-4">
             <availabilty></availabilty>
@@ -20,9 +21,11 @@
 
 <script>
     import Availabilty from "./Availabilty";
+    import ReviewList from "./ReviewList";
     export default {
         components: {
-            Availabilty
+            Availabilty,
+            ReviewList
         },
         name: "Bookable",
         data() {
