@@ -13,7 +13,7 @@
                     v-model="from"
                     @keyup.enter="check"
                     :class="[{'is-invalid': this.errorFor('from')}]"/>
-                <div class="invalid-feedback" v-for="(error, index) in this.errorFor('from')" :key="'from' + index"></div>
+                <div class="invalid-feedback" v-for="(error, index) in this.errorFor('from')" :key="'from' + index">{{error}}</div>
             </div>
             <div class="form-group col-md-6">
                 <label for="to">To</label>
@@ -25,8 +25,9 @@
                     v-model="to"
                     @keyup.enter="check"
                     :class="[{'is-invalid': this.errorFor('to')}]">
+                <div class="invalid-feedback" v-for="(error, index) in this.errorFor('to')" :key="'to' + index">{{error}}</div>
             </div>
-            <div class="invalid-feedback" v-for="(error, index) in this.errorFor('from')" :key="'from' + index"></div>
+
         </div>
 
         <button class="btn btn-secondary btn-block" @click="check" :disabled="loading">Check</button>
