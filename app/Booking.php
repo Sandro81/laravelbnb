@@ -17,4 +17,8 @@ class Booking extends Model
         return $query->where('to', '>=', $from)
             ->where('from', '<=', $to);
     }
+
+    public function review(){
+        return $this->hasOne(Review::class);
+    }
 }
