@@ -38549,13 +38549,17 @@ var render = function() {
       _c("h6", [_vm._v("Review List")]),
       _vm._v(" "),
       _vm._l(3, function(number) {
-        return _c("div", { key: number, staticClass: "border-bottom" }, [
-          _vm._m(0, true),
-          _vm._v(" "),
-          _vm._m(1, true),
-          _vm._v(" "),
-          _vm._m(2, true)
-        ])
+        return _c(
+          "div",
+          { key: number, staticClass: "border-bottom d-none d-md-block" },
+          [
+            _vm._m(0, true),
+            _vm._v(" "),
+            _vm._m(1, true),
+            _vm._v(" "),
+            _vm._m(2, true)
+          ]
+        )
       })
     ],
     2
@@ -38569,14 +38573,16 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row pt-4" }, [
       _c("div", { staticClass: "col-md-6" }, [_vm._v("Sandro Fioravanti")]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md 6" }, [_vm._v("STAR RATING")])
+      _c("div", { staticClass: "col-md 6 d-flex justify-content-end" }, [
+        _vm._v("STAR RATING")
+      ])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row pt-4" }, [
+    return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [_vm._v("Added 5 minutes ago")])
     ])
   },
