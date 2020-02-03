@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding: 1.25rem">
         <h6>Review List</h6>
         <div class="border-bottom d-none d-md-block" v-for="number in 3" :key="number">
             <div class="row pt-4">
