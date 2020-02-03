@@ -38545,6 +38545,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticStyle: { padding: "1.25rem" } },
     [
       _c("h6", [_vm._v("Review List")]),
       _vm._v(" "),
