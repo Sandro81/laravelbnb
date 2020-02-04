@@ -2002,6 +2002,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    bookableId: String
+  },
   data: function data() {
     return {
       from: null,
@@ -2020,8 +2023,8 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true; ///http://localhost/laravelbnb/public/api/bookables/2/availability?from=2020-02-03&to=2020-02-18
       ///http://localhost/laravelbnb/public/api/bookable/2/availability?from=null&to=null
 
-      console.log("http://localhost/laravelbnb/public/api/bookables/".concat(this.$route.params.id, "/availability?from=").concat(this.from, "&to=").concat(this.to));
-      axios.get("http://localhost/laravelbnb/public/api/bookables/".concat(this.$route.params.id, "/availability?from=").concat(this.from, "&to=").concat(this.to)).then(function (response) {
+      console.log("http://localhost/laravelbnb/public/api/bookables/".concat(this.bookableId, "/availability?from=").concat(this.from, "&to=").concat(this.to));
+      axios.get("http://localhost/laravelbnb/public/api/bookables/".concat(this.bookableId, "/availability?from=").concat(this.from, "&to=").concat(this.to)).then(function (response) {
         _this.status = response.status;
         console.log(_this.status);
       })["catch"](function (error) {
@@ -2146,7 +2149,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ReviewList"
+  props: {
+    bookableId: String
+  },
+  name: "ReviewList",
+  data: function data() {
+    return {
+      loading: false,
+      reviews: null
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    this.loading = true;
+    axios.get("/api/bookables/".concat(bookableId, "/reviews")).then(function (response) {
+      return _this.reviews = response.data.data;
+    }).then(function () {
+      return _this.loading = false;
+    });
+  }
 });
 
 /***/ }),
@@ -38513,12 +38535,17 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("reviewList")
+        _c("reviewList", { attrs: { "bookable-id": this.$route.params.id } })
       ],
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "col-md-4 pb-4" }, [_c("availabilty")], 1)
+    _c(
+      "div",
+      { staticClass: "col-md-4 pb-4" },
+      [_c("availabilty", { attrs: { "bookable-id": this.$route.params.id } })],
+      1
+    )
   ])
 }
 var staticRenderFns = []

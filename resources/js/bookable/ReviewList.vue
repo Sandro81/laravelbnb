@@ -32,7 +32,9 @@
         },
         created() {
             this.loading = true;
-            axios.get(`/api/bookables/${bookableId}/reviews`);
+            axios.get(`/api/bookables/${bookableId}/reviews`)
+            .then(response => this.reviews = response.data.data)
+            .then(()=> this.loading = false);
         }
     }
 </script>
