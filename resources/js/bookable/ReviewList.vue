@@ -20,7 +20,17 @@
 
 <script>
     export default {
-        name: "ReviewList"
+        name: "ReviewList",
+        data() {
+            return{
+                loading: false,
+                reviews: null
+            }
+        },
+        created() {
+            this.loading = true;
+            axios.get(`/api/bookables/${}/reviews`);
+        }
     }
 </script>
 
