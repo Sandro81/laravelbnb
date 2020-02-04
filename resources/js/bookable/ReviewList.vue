@@ -1,17 +1,20 @@
 <template>
     <div style="padding: 1.25rem">
         <h6>Review List</h6>
-        <div class="border-bottom d-none d-md-block" v-for="number in 3" :key="number">
-            <div class="row pt-4">
-                <div class="col-md-6">Sandro Fioravanti</div>
-                <div class="col-md 6 d-flex justify-content-end">STAR RATING</div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">Added 5 minutes ago</div>
-            </div>
-            <div class="row pt-4">
-                <div class="col-md-12">
-                    Content of the review
+        <div v-if="loading">Loading...</div>
+        <div v-else>
+            <div class="border-bottom d-none d-md-block" v-for="(review, index) in reviews" :key="number">
+                <div class="row pt-4">
+                    <div class="col-md-6">Sandro Fioravanti</div>
+                    <div class="col-md 6 d-flex justify-content-end">{{review.rating}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">{{review.created_at}}</div>
+                </div>
+                <div class="row pt-4">
+                    <div class="col-md-12">
+                        {{review.content}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,9 +35,9 @@
         },
         created() {
             this.loading = true;
-            axios.get(`/api/bookables/${bookableId}/reviews`)
-            .then(response => this.reviews = response.data.data)
-            .then(()=> this.loading = false);
+            axios.get(`http://localhost/laravelbnb/public/api/bookables/${this.bookableId}/reviews`)
+                .then(response => this.reviews = response.data.data)
+                .then(()=> this.loading = false);
         }
     }
 </script>
