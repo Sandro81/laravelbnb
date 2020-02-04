@@ -20,7 +20,9 @@
 
 <script>
     export default {
-
+        props:{
+            bookableId: String
+        },
         name: "ReviewList",
         data() {
             return{
@@ -30,7 +32,7 @@
         },
         created() {
             this.loading = true;
-            axios.get(`/api/bookables/${}/reviews`);
+            axios.get(`/api/bookables/${bookableId}/reviews`);
         }
     }
 </script>
