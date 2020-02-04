@@ -40,6 +40,9 @@
 
 <script>
     export default {
+        props:{
+            bookableId: String
+        },
         data() {
             return {
                 from: null,
@@ -56,8 +59,8 @@
                 this.loading = true
                 ///http://localhost/laravelbnb/public/api/bookables/2/availability?from=2020-02-03&to=2020-02-18
                 ///http://localhost/laravelbnb/public/api/bookable/2/availability?from=null&to=null
-                console.log(`http://localhost/laravelbnb/public/api/bookables/${this.$route.params.id}/availability?from=${this.from}&to=${this.to}`);
-                axios.get(`http://localhost/laravelbnb/public/api/bookables/${this.$route.params.id}/availability?from=${this.from}&to=${this.to}`)
+                console.log(`http://localhost/laravelbnb/public/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`);
+                axios.get(`http://localhost/laravelbnb/public/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`)
                     .then(response => {
                         this.status = response.status;
                         console.log(this.status);
