@@ -2330,7 +2330,17 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     rating: Number
   },
-  computed: {}
+  computed: {
+    halfStar: function halfStar() {
+      return false;
+    },
+    fullStars: function fullStars() {
+      return 4;
+    },
+    emptyStars: function emptyStars() {
+      return 1;
+    }
+  }
 });
 
 /***/ }),
@@ -56400,22 +56410,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "d-flex" },
+    [
+      _vm._l(_vm.fullStars, function(star) {
+        return _c("i", {
+          staticClass: "fas fa-star",
+          attrs: { kkey: "full" + star }
+        })
+      }),
+      _vm._v(" "),
+      _vm.halfStar
+        ? _c("i", { staticClass: "fas fa-star-half-alt" })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.emptyStars, function(star) {
+        return _c("i", {
+          staticClass: "far fa-star",
+          attrs: { kkey: "empty" + star }
+        })
+      })
+    ],
+    2
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex" }, [
-      _c("i", { staticClass: "fas fa-star" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-star-half-alt" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "far fa-star" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -1,8 +1,8 @@
 <template>
     <div class="d-flex">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half-alt"></i>
-        <i class="far fa-star"></i>
+        <i class="fas fa-star" v-for="star in fullStars" :kkey="'full' + star"></i>
+        <i class="fas fa-star-half-alt" v-if="halfStar"></i>
+        <i class="far fa-star" v-for="star in emptyStars" :kkey="'empty' + star"></i>
     </div>
 </template>
 
@@ -12,7 +12,16 @@
             rating: Number
         },
         computed: {
+            halfStar() {
+                return false;
 
+            },
+            fullStars() {
+                return 4;
+            },
+            emptyStars(){
+                return 1;
+            }
         }
     }
 </script>
