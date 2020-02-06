@@ -1,10 +1,19 @@
 <template>
-    <div>Hello</div>
+    <div class="d-flex">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <i class="far fa-star"></i>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "StarRating"
+        props: {
+            rating: Number
+        },
+        computed: {
+
+        }
     }
 </script>
 
