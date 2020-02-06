@@ -6,7 +6,10 @@
             <div class="border-bottom d-none d-md-block" v-for="(review, index) in reviews" :key="number">
                 <div class="row pt-4">
                     <div class="col-md-6">Sandro Fioravanti</div>
-                    <div class="col-md 6 d-flex justify-content-end">{{review.rating}}</div>
+                    <div class="col-md 6 d-flex justify-content-end">
+                        {{review.rating}}
+                        <star-rating></star-rating>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">{{review.created_at | fromNow}}</div>
@@ -40,11 +43,11 @@
                 .then(response => this.reviews = response.data.data)
                 .then(()=> this.loading = false);
         },
-        filters: {
-            fromNow(value){
-                return moment(value).fromNow();
-            }
-        }
+        // filters: {
+        //     fromNow(value){
+        //         return moment(value).fromNow();
+        //     }
+        // }
     }
 </script>
 
