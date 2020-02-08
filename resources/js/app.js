@@ -14,6 +14,8 @@ window.Vue = require('vue');
 Vue.use(VueRouter);
 Vue.filter("fromNow", value => moment(value).fromNow());
 Vue.component("star-rating", StarRating);
+
+
 const app = new Vue({
     el: '#app',
     router,

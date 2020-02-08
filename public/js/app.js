@@ -2153,7 +2153,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 // import moment from "moment";
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2326,20 +2325,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     rating: Number
   },
   computed: {
     halfStar: function halfStar() {
-      return false;
+      var fraction = this.rating - Math.floor(this.rating);
+      console.log(fraction);
+      return fraction > 0 && fraction < 50;
     },
     fullStars: function fullStars() {
-      return 4;
+      // > 4.5 = 5 starts
+      // 4.3 = 4 and half
+      return Math.round(this.rating);
     },
     emptyStars: function emptyStars() {
-      return 1;
-    }
+      // if rating would be 1.9, ceil(1.9) = 2, 5 - 2 = 3, render 3 empty stars
+      return 5 - Math.ceil(this.rating);
+    },
+    created: function created() {}
   }
 });
 
@@ -56246,14 +56253,7 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "col-md 6 d-flex justify-content-end" },
-                    [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(review.rating) +
-                          "\n                    "
-                      ),
-                      _c("star-rating")
-                    ],
+                    [_c("star-rating", { attrs: { rating: review.rating } })],
                     1
                   )
                 ]),
@@ -56414,6 +56414,7 @@ var render = function() {
     "div",
     { staticClass: "d-flex" },
     [
+      _vm._v("\n    " + _vm._s(_vm.rating) + "\n    "),
       _vm._l(_vm.fullStars, function(star) {
         return _c("i", {
           staticClass: "fas fa-star",
